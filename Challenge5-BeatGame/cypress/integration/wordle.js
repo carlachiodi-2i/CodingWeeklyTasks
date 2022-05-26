@@ -64,7 +64,7 @@ describe('Beat Wordle', () => {
                 res.body = res.body.replace('=["cigar', '=window.wordList=["cigar',)
             })
         }).as('words')
-        // cy.fixture('wordList.json').as('wordList')
+        // Visit page and try word from word list
         cy.visit('/index.html').its('wordList').then((wordList) => {
             //Close GDPR and Help windows
             cy.get('#pz-gdpr-btn-closex').click().wait(1000)
