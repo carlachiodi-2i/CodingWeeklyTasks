@@ -1,0 +1,14 @@
+{
+  "name": "challenge5-beatgame",
+  "version": "1.0.0",
+  "description": "Beat Wordle using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}

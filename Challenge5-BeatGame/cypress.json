@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://www.nytimes.com/games/wordle",
+    "includeShadowDom": true
+
+}
