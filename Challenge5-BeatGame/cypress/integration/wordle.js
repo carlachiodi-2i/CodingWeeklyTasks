@@ -12,7 +12,7 @@ function countUniqueLetters(word) {
     return new Set(word).size
 }
 
-function tryNextWord (wordList) {
+function nextWord (wordList) {
     // Show the number of words in the wordlist, it should decrease in every run
     console.log('word list with %d words', wordList.length)
 
@@ -24,7 +24,6 @@ function tryNextWord (wordList) {
     // Check attributes of each letter (Absent, Present or Correct)
     cy.get(`game-row[letters=${word}]`)
         .find('game-tile')
-        .should('have.length', word.length)
         .each(($tile, position) => {
             const letter = $tile.attr('letter')
             // only consider characters we see for first time
@@ -38,20 +37,20 @@ function tryNextWord (wordList) {
             //Filter word list based on the evaluation
             if (evaluation === 'absent') {
                 // Remove words that contain absent letter
-                wordList = wordList.filter((w) => !w.includes(letter))
+                wordList = wordList.filter((words) => !words.includes(letter))
             } else if (evaluation === 'present') {
                 // Keep words that contain present letter
-                wordList = wordList.filter((w) => w.includes(letter))
+                wordList = wordList.filter((words) => words.includes(letter))
             } else if (evaluation === 'correct') {
                 // increase count
                 count += 1
-                wordList = wordList.filter((w) => w[position] === letter)
+                wordList = wordList.filter((words) => words[position] === letter)
             }
     }).then(() => {
-        if (count ===  countUniqueLetters(word)) {
+        if (count === countUniqueLetters(word)) {
             cy.log('**SOLVED**')
         } else {
-            tryNextWord(wordList)
+            nextWord(wordList)
         }
     })
 
@@ -71,7 +70,7 @@ describe('Beat Wordle', () => {
             cy.get('#pz-gdpr-btn-closex').click().wait(1000)
             cy.get('body > game-app').click().wait(1000)
 
-            tryNextWord(wordList)
+            nextWord(wordList)
         })  
     })
 })
