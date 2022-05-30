@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-container {
+  text-align: center;
+}
+
+html { 
+  background: url(./imgs/mk-bkg.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.inputs {
+  color: white;
+  position: fixed;
+  right: 10vh;
+  top: 8vh;
+  width: 20%;
+}
+
+.name-submit {
+  display: flex;
+  flex-direction: column;
+}
+
+.tiles {
+  color: white;
+  position: fixed;
+  left: 15vh;
+  bottom: 10vh;
+  width: 20%;
+}
+
+input {
+  margin-top: 1vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
