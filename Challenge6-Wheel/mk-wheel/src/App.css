@@ -44,6 +44,11 @@ html {
   left: 15vh;
   bottom: 10vh;
   width: 20%;
+  z-index: 10;
+}
+
+.tile {
+  position:absolute;
 }
 
 input {

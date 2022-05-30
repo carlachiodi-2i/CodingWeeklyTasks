@@ -1,13 +1,26 @@
+import React, { useState } from 'react'
 import './App.css';
 import Tile from './Tile';
 // import logo from './mk-logo.png'
 
 function App() {
   let tiles = []
+  const [names, setNames] = useState([])
+  const [count, setCount] = useState(0)
   function submitName(e) {
     e.preventDefault()
-    tiles.push(<Tile name={e.target[0].value} />)
+    let newCount = count + 1
+    let newNames = [...names, e.target[0].value]
+    setNames(newNames)
+    setCount(newCount)
   }
+  for (let i = 1; i <= count; i++) {
+    const tileStyle = {bottom: (8 + i*75).toString() + 'px'}
+    tiles.push(<div className="tile" style={tileStyle} key={`tile-${i}`}>
+        <Tile key={`tile-${i}`} name={names[i]} count={count} />
+      </div>)
+  }
+
 
   return (
     <div className="App">
@@ -18,13 +31,11 @@ function App() {
             <input type="text" />
             <input type="submit" />
           </form>
+          <button>Sort!</button>
+          <button>Clear</button>
         </div>
-        {/* {tiles.length > 0 ?
         <div className="tiles">
           {tiles}
-        </div> : ''} */}
-        <div className="tiles">
-        <Tile name='test' />
         </div>
       </div>
     </div>

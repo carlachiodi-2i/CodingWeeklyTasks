@@ -1,8 +1,31 @@
-
+.Tile {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.single-tile {
+    position: relative
+}
 .tile-bkg {
-    max-width: 10vh;
+    max-width: 150px;
+    position: absolute;
+    bottom: 0px;
+    left: 8px;
 }
 
 .character {
-    max-height: 50px;
+    max-height: 40px;
+    position: absolute;
+    bottom: 15px;
+    left: 92px;
+    z-index: 3;
+}
+
+.names {
+    font-size: 1.2em;
+    max-width: 50px;
+    position: absolute;
+    bottom: 7px;
+    left: 25px;
+    z-index: 3;
+    text-align: center;
 }
