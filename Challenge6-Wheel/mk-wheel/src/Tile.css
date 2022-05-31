@@ -21,11 +21,13 @@
 }
 
 .names {
-    font-size: 1.2em;
-    max-width: 50px;
+    font-size: 2vw;
+    width: 71px;
     position: absolute;
-    bottom: 7px;
-    left: 25px;
+    overflow-wrap: break-word;
+    bottom: 25px;
+    left: 20px;
     z-index: 3;
     text-align: center;
+    margin: 0 auto;
 }

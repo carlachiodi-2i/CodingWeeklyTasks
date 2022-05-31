@@ -14,13 +14,20 @@ function App() {
     setNames(newNames)
     setCount(newCount)
   }
-  for (let i = 1; i <= count; i++) {
+  for (let i = 0; i < count; i++) {
     const tileStyle = {bottom: (8 + i*75).toString() + 'px'}
     tiles.push(<div className="tile" style={tileStyle} key={`tile-${i}`}>
         <Tile key={`tile-${i}`} name={names[i]} count={count} />
       </div>)
   }
 
+  function clear () {
+    window.location.reload();
+  }
+
+  function sortNames () {
+
+  }
 
   return (
     <div className="App">
@@ -31,8 +38,8 @@ function App() {
             <input type="text" />
             <input type="submit" />
           </form>
-          <button>Sort!</button>
-          <button>Clear</button>
+          <button onClick={sortNames}>Sort!</button>
+          <button onClick={clear}>Clear</button>
         </div>
         <div className="tiles">
           {tiles}
