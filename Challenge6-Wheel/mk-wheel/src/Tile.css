@@ -5,17 +5,17 @@
 .single-tile {
     position: relative
 }
+
 .tile-bkg {
     max-width: 150px;
     position: absolute;
-    bottom: 0px;
     left: 8px;
 }
 
 .character {
     max-height: 50px;
     position: absolute;
-    bottom: 11px;
+    bottom: -66px;
     left: 92px;
     z-index: 2;
 }
@@ -29,6 +29,36 @@
     margin: 0 auto;
 }
 
+.border {
+    position: absolute;
+    z-index: 5;
+    width: 145px;
+    height: 70px;
+}
+
+@keyframes fadeinout {
+    0% {
+        border: 5px solid rgb(163,255,25);
+        opacity: 0;
+    }
+    2% {
+        border: 5px solid rgb(163,255,25);
+        opacity: 1;
+    }
+    50% {      
+        border: 5px solid rgb(163,255,25);           
+        opacity: 1;
+    }
+    70% {     
+        border: 5px solid rgb(163,255,25);                
+        opacity: 1;
+    }
+   100% {
+        border: 5px solid rgb(163,255,25);
+        opacity: 0;
+    }
+  }
+
 @media screen and (max-width: 1000px) {
     .names {
         width: 71px;
@@ -37,6 +67,18 @@
         z-index: 3;
         text-align: center;
         margin: 0 auto;
+    }
+    .border {
+        position: absolute;
+        z-index: 5;
+        width: '150px';
+        height: '80px';
+    }
+    .tile-bkg {
+        bottom: 0px;
+    }
+    .character {
+        bottom: 11px;
     }
 }
 
@@ -63,5 +105,11 @@
         bottom: 5px;
         left: 50px;
         z-index: 2;
+    }
+    .border {
+        position: absolute;
+        z-index: 5;
+        width: '80px';
+        height: '50px';
     }
 }
