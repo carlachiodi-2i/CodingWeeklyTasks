@@ -13,19 +13,16 @@
 }
 
 .character {
-    max-height: 40px;
+    max-height: 50px;
     position: absolute;
-    bottom: 15px;
+    bottom: 11px;
     left: 92px;
     z-index: 2;
 }
 
 .names {
-    /* font-size: 1.5vw; */
     width: 71px;
     position: absolute;
-    /* overflow-wrap: break-word;
-    bottom: 25px; */
     left: 20px;
     z-index: 3;
     text-align: center;
@@ -34,7 +31,6 @@
 
 @media screen and (max-width: 1000px) {
     .names {
-        font-size: 2vw;
         width: 71px;
         position: absolute;
         left: 20px;
@@ -46,10 +42,9 @@
 
 @media screen and (max-width: 450px) {
     .names {
-        font-size: 2.5vw;
-        width: 50px;
+        width: 40px;
         position: absolute;
-        left: 7px;
+        left: 10px;
         z-index: 3;
         text-align: center;
         margin: 0 auto;

@@ -73,6 +73,9 @@ function App() {
     } else {
       document.getElementById('submitName').disabled = false
     }
+
+    // Clear input field
+    document.getElementById('nameInput').value = ''
   }
     
   for (let i = 1; i <= count; i++) {
@@ -98,7 +101,7 @@ function App() {
         <div className="inputs">
           <form onSubmit={submitName} className="name-submit">
             <label>Enter a name</label>
-            <input type="text" />
+            <input type="text" id="nameInput" />
             <input type="submit" id="submitName" />
           </form>
           <button onClick={sortNames}>Sort!</button>

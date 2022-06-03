@@ -3,19 +3,20 @@ import './Tile.css';
 import tile from './imgs/tile.png'
 
 function Tile(props) {
-  
+  let w = window.innerWidth
+
   function checkSize (string) {
     let styleLongName
     if (string.length >= 10) {
-      styleLongName = {overflowWrap: 'break-word', bottom: '10px', fontSize: '1.0vw'}
+      styleLongName = {overflowWrap: 'break-word', bottom: '10px', fontSize: (w > 450) ? '1.0vw' : '1.5vw'}
     } else {
-      styleLongName = {overflowWrap: 'break-word', bottom: '10px', fontSize: '1.5vw'}
+      styleLongName = {overflowWrap: 'break-word', bottom: '15px', fontSize: (w > 450) ? '1.5vw' : '2vw'}
     }
     return styleLongName
   }
 
 
-  let styleShortName = {bottom: '25px', fontSize: '1.5vw'}
+  let styleShortName = {bottom: (w > 450) ? '25px' : '15px', fontSize: (w > 450) ? '1.5vw' : '3vw'}
 
   let tiles = []
 
