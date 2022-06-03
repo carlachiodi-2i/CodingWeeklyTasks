@@ -21,13 +21,52 @@
 }
 
 .names {
-    font-size: 2vw;
+    /* font-size: 1.5vw; */
     width: 71px;
     position: absolute;
-    overflow-wrap: break-word;
-    bottom: 25px;
+    /* overflow-wrap: break-word;
+    bottom: 25px; */
     left: 20px;
     z-index: 3;
     text-align: center;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .names {
+        font-size: 2vw;
+        width: 71px;
+        position: absolute;
+        left: 20px;
+        z-index: 3;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .names {
+        font-size: 2.5vw;
+        width: 50px;
+        position: absolute;
+        left: 7px;
+        z-index: 3;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .tile-bkg {
+        max-width: 80px;
+        position: absolute;
+        bottom: 0px;
+        left: 8px;
+    }
+    
+    .character {
+        max-height: 30px;
+        position: absolute;
+        bottom: 5px;
+        left: 50px;
+        z-index: 2;
+    }
 }
