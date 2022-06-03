@@ -60,6 +60,14 @@ input {
   color: #61dafb;
 }
 
+#winner {
+  color: rgb(163,255,25);
+  font-size: 5vw;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
