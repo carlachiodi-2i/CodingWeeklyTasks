@@ -2,7 +2,7 @@
   "name": "mk-wheel",
   "version": "0.1.0",
   "homepage": "https://carlachiodi-2i.github.io/CodingWeeklyTasks/Challenge6-Wheel/mk-wheel",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b main -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
