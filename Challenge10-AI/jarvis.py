@@ -5,6 +5,12 @@ import speech_recognition as sr
 from random import choice
 from queries import working_on_queries
 from functions import open_program
+from functions import search_wikipedia
+from functions import play_youtube
+from functions import google_search
+from functions import open_Tempora
+from functions import send_email
+
 
 USERNAME = config('OWNER')
 BOTNAME = config('BOTNAME')
@@ -79,8 +85,62 @@ def take_user_input():
         query = 'None'
     return query
 
+def schedule_tempora():
+    weekday = datetime.now().strftime("%A")
+    if weekday == 'Friday':
+        open_Tempora
+
+
 if __name__ == '__main__':
-    greet_user()
+    # greet_user()
+    schedule_tempora()
     while True:
         query = take_user_input().lower()
         print(query)
+
+        if 'open notepad' in query:
+            open_program('notepad')
+
+        elif 'open calculator' in query:
+            open_program('calculator')
+
+        elif 'open terminal' in query:
+            open_program('terminal')
+
+        elif 'open email' in query:
+            open_program('email')
+
+        elif 'open teams' in query:
+            open_program('teams')
+
+        elif 'wikipedia' in query:
+            speak('What would you like to search on Wikipedia, please?')
+            search_query = take_user_input().lower()
+            results = search_wikipedia(search_query)
+            speak(results)
+            print(results)
+
+        elif 'youtube' in query:
+            speak('What would you like to play on Youtube, please?')
+            video = take_user_input().lower()
+            play_youtube(video)
+
+        elif 'search on google' in query:
+            speak('What would you like to search on Google, please?')
+            query = take_user_input().lower()
+            google_search(query)
+
+        elif "send an email" in query:
+            speak("To whom? Please type in the console: ")
+            receiver_email = input("Enter email: ")
+            speak("What is subject, please?")
+            subject = take_user_input().capitalize()
+            speak("What is the message, please?")
+            message = take_user_input().capitalize()
+            if send_email(receiver_email, subject, message):
+                speak("I've sent the email")
+            else:
+                speak("Something went wrong while I was sending the mail. Please check the error logs.")
+
+        elif 'open Tempora' in query:
+            open_Tempora()
