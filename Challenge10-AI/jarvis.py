@@ -4,6 +4,7 @@ from datetime import datetime
 import speech_recognition as sr
 from random import choice
 from queries import working_on_queries
+from functions import open_program
 
 USERNAME = config('OWNER')
 BOTNAME = config('BOTNAME')
@@ -19,15 +20,22 @@ elif platform == "win32":
     engine = pyttsx3.init('sapi5')
 
 # Set Rate
-engine.setProperty('rate', 190)
+engine.setProperty('rate', 280)
 
 # Set Volume
 engine.setProperty('volume', 1.0)
 
-# Set Voice (Male)
-# Male voice is voices[0]; Female is voices[1]
+# Set type of voice (there are male and female options, from different languages as well)
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+# Commented out because I used it to find out which was a better voice for me
+# for voice in voices:
+#     print(voice, voice.id)
+#     engine.setProperty('voice', voice.id)
+#     engine.say("Hello World!")
+#     engine.runAndWait()
+#     engine.stop()
+#  voice #7 is a male voice, en-UK
+engine.setProperty('voice', voices[7].id)
 
 # Text to Speech Conversion
 def speak(text):
@@ -54,12 +62,15 @@ def take_user_input():
         print('Listening....')
         r.pause_threshold = 1
         audio = r.listen(source)
+        print(audio)
 
     try:
         print('Recognizing...')
-        query = r.recognize_google(audio, language='en-in')
+        query = r.recognize_google(audio, language='en-uk')
         if not 'exit' in query or 'stop' in query:
             speak(choice(working_on_queries))
+        elif 'hey jarvis' in query:
+            greet_user()
         else:
             speak('Have a good day!')
             exit()
