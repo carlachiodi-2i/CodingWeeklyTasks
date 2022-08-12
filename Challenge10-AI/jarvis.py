@@ -92,7 +92,7 @@ def schedule_tempora():
 
 
 if __name__ == '__main__':
-    # greet_user()
+    greet_user()
     schedule_tempora()
     while True:
         query = take_user_input().lower()
