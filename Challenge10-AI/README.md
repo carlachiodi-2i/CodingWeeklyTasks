@@ -14,3 +14,6 @@ PASSWORD=YOUR_EMAIL_PASS
 ```
 
 Also change the paths on functions.py to open your programs correctly. If for some reason they are not opening, you can try replacing the sp.Popen for os.startfile(path).
+
+Then run the script: \
+` python jarvis.py`

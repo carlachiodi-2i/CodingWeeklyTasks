@@ -7,7 +7,8 @@
   `rustc --version`
 
 - Run commands to run Fizzbuzz: \
-  `rustc fizzbuzz.rs ./fizzbuzz`
+  `rustc fizzbuzz.rs `
+  `./fizzbuzz`
 
 For more information about Rust:
 https://doc.rust-lang.org/rust-by-example/index.html
