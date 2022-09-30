@@ -1,3 +1,7 @@
+import random
+import string
+
+# The letters from the task will be called: length (L), numeric (N), symbol (X), capitalLetters (C), nonCapital (L - (N + X + C))
 inputs = {
     'length': {'value': 0, 'message': 'What is the length of the password?'},
     'numeric': {'value': 0, 'message': 'How many numbers?'},
@@ -5,11 +9,19 @@ inputs = {
     'capitalLetters': {'value': 0, 'message': 'How many capital letters?'},
 }
 
-# The letters from the task will be called: length (L), numeric (N), symbol (X), capitalLetters (C), nonCapital (L - (N + X + C))
-
 
 def passgen(length, numeric, symbol, capitalLetters, nonCapital):
-    return
+    numbers = ''.join(random.choice(string.digits) for i in range(numeric))
+    symbols = ''.join(random.choice(string.punctuation) for i in range(symbol))
+    upperLetters = ''.join(random.choice(string.ascii_uppercase)
+                           for i in range(capitalLetters))
+    lowerLetters = ''.join(random.choice(string.ascii_lowercase)
+                           for i in range(nonCapital))
+    characters = numbers + symbols + upperLetters + lowerLetters
+
+    finalCombination = ''.join(random.sample(characters, length))
+
+    return print(finalCombination)
 
 
 def inputChecker():
@@ -19,7 +31,7 @@ def inputChecker():
     capitalLetters = inputs['capitalLetters']['value']
 
     if (length < (numeric + symbol + capitalLetters)):
-        print('error')
+        return print('error')
     else:
         nonCapital = length - (numeric + symbol + capitalLetters)
         return passgen(length, numeric, symbol, capitalLetters, nonCapital)
