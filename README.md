@@ -8,4 +8,5 @@ Challenge 4 - the most frustrating and painful to complete game\
 Challenge 5 - solve a game with any testing tool\
 Challenge 6 - MK spin the wheel \
 Challenge 10 - Jarvis \
-Challenge 12 - Rusty FizzBuzz
+Challenge 12 - Rusty FizzBuzz \
+Challenge 14 - Password Generator
