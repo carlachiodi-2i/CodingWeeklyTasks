@@ -10,5 +10,4 @@ Challenge 6 - MK spin the wheel \
 Challenge 10 - Jarvis \
 Challenge 12 - Rusty FizzBuzz \
 Challenge 14 - Password Generator
-
 Challenge - Another Hello World

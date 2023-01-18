@@ -14,10 +14,12 @@ function nextWord(word) {
 
 describe('Hello World', () => {
     it('Type Hello World', () => {
-        // Visit page and try word from word list
+        //Visit page
         cy.visit('/index.html')
+        // Close Guide and Cookies
         cy.get('#pz-gdpr-btn-closex').click().wait(1000)
         cy.get('dialog > div > button.Modal-module_closeIcon__TcEKb').click().wait(1000)
+        // Enter 'Hello'
         nextWord('Hello')
     })
 })
