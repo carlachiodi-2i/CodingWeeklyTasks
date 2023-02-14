@@ -32,10 +32,16 @@
                                 Hello World</a></li>
         </ul>
         <h2>For testing POC</h2>
-        <form action="alert('Form submitted')">
+        <form action="return submit()">
                 <input type="text" id="text-input">
                 <button type="submit" id="submit-button">Submit</button>
         </form>
 </body>
+<script>
+        function submit() {
+                alert('Form submitted')
+                return true
+        }
+</script>
 
 </html>
