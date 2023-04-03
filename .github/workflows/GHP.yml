@@ -1,21 +1,44 @@
-name: Add PRs and Issues automatically to GitHub Projects
+name: Automate GitHub Projects
 
-on:
-  issues:
-    types:
-      - opened
-  pull_request:
-    types:
-      - opened
+on: [issues, pull_request]
 
+# jobs:
+#   add-to-project:
+#     name: Add issue to project
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/add-to-project@v0.4.1
+#         with:
+#           # You can target a project in a different organization
+#           # to the issue
+#           project-url: https://github.com/users/carlachiodi-2i/projects/3
+#           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          
+          
 jobs:
-  add-to-project:
-    name: Add issue to project
+  github-actions-automate-projects:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v0.4.1
-        with:
-          # You can target a project in a different organization
-          # to the issue
-          project-url: https://github.com/users/carlachiodi-2i/projects/3
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+    - name: add-new-issues-to-repository-based-project-column
+      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
+      if: github.event_name == 'issues' && github.event.action == 'opened'
+      env:
+        GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_COLUMN_NAME: Todo    
+        
+    - name: assigned-issues-to-repository-based-project-column
+      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
+      if: github.event_name == 'issues' && github.event.action == 'assigned'
+      env:
+        GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_COLUMN_NAME: In Progress
+        
+    - name: add-new-prs-to-repository-based-project-column
+      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
+      if: github.event_name == 'pull_request' && github.event.action == 'opened'
+      env:
+        GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_COLUMN_NAME: In Review
