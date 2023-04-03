@@ -24,7 +24,7 @@ jobs:
       if: github.event_name == 'issues' && github.event.action == 'opened'
       env:
         GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
-        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_URL: https://github.com/orgs/2i-Git/projects/13
         GITHUB_PROJECT_COLUMN_NAME: Todo    
         
     - name: assigned-issues-to-repository-based-project-column
@@ -32,7 +32,7 @@ jobs:
       if: github.event_name == 'issues' && github.event.action == 'assigned'
       env:
         GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
-        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_URL: https://github.com/orgs/2i-Git/projects/13
         GITHUB_PROJECT_COLUMN_NAME: In Progress
         
     - name: add-new-prs-to-repository-based-project-column
@@ -40,5 +40,5 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action == 'opened'
       env:
         GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
-        GITHUB_PROJECT_URL: https://github.com/users/carlachiodi-2i/projects/3
+        GITHUB_PROJECT_URL: https://github.com/orgs/2i-Git/projects/13
         GITHUB_PROJECT_COLUMN_NAME: In Review
